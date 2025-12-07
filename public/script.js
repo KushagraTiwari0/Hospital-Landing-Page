@@ -22,26 +22,17 @@ window.addEventListener('scroll', () => {
     }
 });
 
-//----------------- Qoute API ---------------------------
-
+// ---------------- QUOTE API ---------------------------
 let quote = document.querySelector(".quote-text");
 let author = document.querySelector(".quote-author");
 
-const key = `/bP3C+tWIfcEIO5i8B1mEw==SPLQBx7RvBE8wkmn`;
-const categories = `happiness,inspirational,philosophy`;
-const url = `https://api.api-ninjas.com/v2/quotes?categories=${categories}&limit=5`;
-
-fetch(url, {
-    headers: {
-        "X-Api-Key": key
-    }
-})
-.then(res => res.json())
-.then(data => {
-    
-     const random = data[Math.floor(Math.random() * data.length)];
-    
-    quote.textContent = random.quote;
-    author.textContent = random.author; 
-})
-.catch(err => console.log(err));
+// Fetch quotes from your backend endpoint
+fetch("/quotes")
+  .then(res => res.json())
+  .then(data => {
+      // Pick a random quote from the returned array
+      const random = data[Math.floor(Math.random() * data.length)];
+      quote.textContent = random.quote;
+      author.textContent = random.author;
+  })
+  .catch(err => console.log(err));
