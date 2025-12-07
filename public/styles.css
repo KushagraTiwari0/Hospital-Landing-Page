@@ -170,17 +170,28 @@ header .fa-bars{
     padding-top: 0;
 }
 
+/* this is test */
+
+/* .test_p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+} */
+
+
+
+
 /* Blue letters */
 .heading .blue {
     color: #0066ff;
 }
 
 .about-text {
-    font-size: 20px;
-    line-height: 1.9;
+    font-size: 16px;
+    line-height:1.4;
     color: #444;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    
 }
 
 /* ---------------- CONTACT ---------------- */
@@ -291,6 +302,18 @@ header .fa-bars{
         flex-direction: column;
         text-align: center;
     }
+    .contact .row {
+        flex-flow: column;
+    }
+    .contact .row .images img{
+        width: 90vw;
+        height: 50vh;
+    }
+    .contact .row .form-container{
+        width: 90%;
+        padding: 0;
+    }
+
 
     .about {
         padding: 0 5%;
