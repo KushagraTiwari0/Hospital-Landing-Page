@@ -26,13 +26,12 @@ window.addEventListener('scroll', () => {
 let quote = document.querySelector(".quote-text");
 let author = document.querySelector(".quote-author");
 
-// Fetch quotes from your backend endpoint
-fetch("/quotes")
+// Fetch quotes from Netlify serverless function
+fetch("/.netlify/functions/quotes")
   .then(res => res.json())
   .then(data => {
-      // Pick a random quote from the returned array
       const random = data[Math.floor(Math.random() * data.length)];
       quote.textContent = random.quote;
       author.textContent = random.author;
   })
-  .catch(err => console.log(err));
+  .catch(err => console.log("API Error:", err));
